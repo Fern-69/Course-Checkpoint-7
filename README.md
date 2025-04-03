@@ -1,9 +1,13 @@
 # Course-Checkpoint-7
 &nbsp;
+![Carátula de Portada](ruta/a/tu/imagen.jpg)
 &nbsp;
 ## ¿Qué diferencia a Javascript de cualquier otro lenguaje de programación?
 &nbsp;
 &nbsp;JavaScript se diferencia radicalmente de otros lenguajes de programación en estos 7 pilares fundamentales:
+1. Es el único lenguaje ejecutado en navegadores.
+2. Compatibilidad con todas las versiones: Código de 1995 sigue funcionando hoy.
+3. 
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
