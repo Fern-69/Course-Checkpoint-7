@@ -1,6 +1,6 @@
 # Course-Checkpoint-7
 &nbsp;
-![Carátula de Portada](ruta/a/tu/imagen.jpg)
+![Carátula de Portada](JavaScript-Logo.png)
 &nbsp;
 ## ¿Qué diferencia a Javascript de cualquier otro lenguaje de programación?
 &nbsp;
