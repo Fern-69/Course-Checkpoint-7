@@ -1,4 +1,4 @@
-<h1 style=text-align:"center";>COURSE_CHECKPOINT-7</h1>
+# COURSE_CHECKPOINT-7
 &nbsp;
 
 ![Carátula de Portada](JavaScript-Logo.png)
