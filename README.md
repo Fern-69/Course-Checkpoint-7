@@ -1,7 +1,9 @@
 <h1 style="text-align: center;">COURSE_CHECKPOINT-7</h1>
 &nbsp;
+
 ![Carátula de Portada](JavaScript-Logo.png)
 &nbsp;
+
 ## ¿Qué diferencia a Javascript de cualquier otro lenguaje de programación?
 &nbsp;
 &nbsp;JavaScript se diferencia radicalmente de otros lenguajes de programación en estos 7 pilares fundamentales:
