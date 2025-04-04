@@ -62,8 +62,18 @@
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;En **JS** `var` se "eleva" (<ins>hoisting:</ins> *comportamiento donde las declaraciones de variables y funciones se mueven al inicio de su ámbito **(scope)** antes de que se ejecute el código*), `let/const` también pero no se inicializan. En el caso de ***C/Java/C#*** no aplica, y se produce un error si usas antes de declarar.
 
 3. Programación asincrónica: **JS** permite ejecutar tareas simultáneamente sin bloquear el hilo principal, lo que la hace ideal para gestionar operaciones que consumen mucho tiempo, como solicitudes de red o la lectura de archivos. Dos operaciones asíncronas comunes en **JS** son las devoluciones de llamadas y las promesas. Frente a otros lenguajes:
+   
+<table>
+  <tr>
+    <td><span style="color: orange;">JavaScript</span></td>
+    <td>Otros Lenguajes</td>
+  </tr>
+</table>
+
+|<span style="color: orange;">JavaScript</span>|	Otros Lenguajes|
+|----------------------------------------------|------------------|
         
-|<span style="color:orange">JavaScript</span>|	Otros Lenguajes|
+|<span style="color: orange;">JavaScript</span>|	Otros Lenguajes|
 |----------|------------------|
 |Un solo hilo (un chef)|	Múltiples hilos (varios chefs)|
 Nunca se bloquea: el chef siempre está haciendo algo.	Pueden bloquearse (chefs esperando).
