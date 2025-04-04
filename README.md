@@ -57,51 +57,67 @@
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Otros lenguajes suelen ser más consistentes (todo bloque o todo función). En el caso de ***Python/Ruby*** se parecen a **JavScript** con `let`, pero sin el problema histórico de `var`. En el caso de ***C/Java/C#***, siempre bloque (las variables viven dentro de `{}`)
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;En el caso de variables en bucles, con **JS** `var` se comparte en iteraciones (¡problemas con  <ins>closures:</ins>! *Función que recuerda su entorno original, incluso cuando se ejecuta fuera de ese entorno*), pero se resuelve con `let`; similar en ***Python/Ruby***. Pero en ***C/Java/C#***, cada iteración tiene su propia variable.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;En el caso de variables en bucles, con **JS** `var` se comparte en iteraciones, auqnue podría haber posibles problemas con <ins>closures:</ins>, se resuelve con `let`; similar en ***Python/Ruby***; Pero en ***C/Java/C#***, cada iteración tiene su propia variable.
+> [!NOTE]
+> <ins>closures:</ins>! *Función que recuerda su entorno original, incluso cuando se ejecuta fuera de ese entorno*
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;En **JS** `var` se "eleva" (<ins>hoisting:</ins> *comportamiento donde las declaraciones de variables y funciones se mueven al inicio de su ámbito **(scope)** antes de que se ejecute el código*), `let/const` también pero no se inicializan. En el caso de ***C/Java/C#*** no aplica, y se produce un error si usas antes de declarar.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;En **JS** `var` se "eleva" (<ins>hoisting:</ins>), `let/const` también pero no se inicializan. En el caso de ***C/Java/C#*** no aplica, y se produce un error si usas antes de declarar.
+> [!NOTE]
+><ins>hoisting:</ins> *comportamiento donde las declaraciones de variables y funciones se mueven al inicio de su ámbito **(scope)** antes de que se ejecute el código*
 
 3. Programación asincrónica: **JS** permite ejecutar tareas simultáneamente sin bloquear el hilo principal, lo que la hace ideal para gestionar operaciones que consumen mucho tiempo, como solicitudes de red o la lectura de archivos. Dos operaciones asíncronas comunes en **JS** son las devoluciones de llamadas y las promesas. Frente a otros lenguajes:
    
-<table>
-  <tr>
-    <td><span style="color: orange;">JavaScript</span></td>
-    <td>Otros Lenguajes</td>
-  </tr>
-</table>
-
-|<span style="color: orange;">JavaScript</span>|	Otros Lenguajes|
-|----------------------------------------------|------------------|
-        
-|<span style="color: orange;">JavaScript</span>|	Otros Lenguajes|
+|JavaScript|	Otros Lenguajes|
 |----------|------------------|
-|Un solo hilo (un chef)|	Múltiples hilos (varios chefs)|
-Nunca se bloquea: el chef siempre está haciendo algo.	Pueden bloquearse (chefs esperando).
-Más lento en tareas pesadas (ej: cálculos grandes).	Más rápidos en tareas pesadas (si usan bien los hilos).
-Ideal para tareas de espera (APIs, archivos).	Mejor para procesamiento en paralelo (videos, juegos).
+|Un solo hilo|	Múltiples hilos|
+|Nunca se bloquea: siempre está haciendo algo|	Pueden bloquearse (esperando)|
+|Más lento en tareas pesadas (ej: cálculos grandes)|	Más rápidos en tareas pesadas (si usan bien los hilos)|
+|Ideal para tareas de espera (APIs, archivos)|	Mejor para procesamiento en paralelo (videos, juegos)|
+
+4. Programación síncrona: Las tareas se ejecutan una tras otra, en orden. Si una operación tarda (como leer un archivo o hacer una consulta a una ***API***), el programa se detiene hasta que termine.
+   **JS** es síncrono por defecto, pero la gran diferencia frente a otros lenguajes es que no tiene operaciones de Entrada/Salida (Input/Output) síncronas por defecto en el navegador. No bloquean el hilo       principal mientras espera una respuesta y el código sigue ejecutándose (por ejemplo, una ***API***). En otros lenguajes, si no usan hilos o técnicas async, el programa se congela hasta que la operación termine.
+
+5. Compatibilidad y evolución: **JS** es un Código escrito hace 20 años que aún funciona en navegadores modernos. ECMAScript se actualiza casi anualmente, añadiendo mejoras como let/const, arrow functions, módulos, etc., siendo la implemetación más famosa. Esto tiene la ventaja de que no hay que reescribir todo cada año. Aunque el Código antiguo puede tener vulnerabilidades o malas prácticas.
+   Otros lenguajes (***Python, Java, C#***) son lenguajes + implementaciones oficiales, es decir, no separan "estándar" de "implementación" tan claramente. Suelen evolucionar más lento y con control centralizado.
+   **JS** está diseñado para el navegador, por eso su modelo asíncrono (Event Loop) es único, y se integra a la perfección con ***HTML*** y ***CSS*** (añade comportamiento dinámico e interactividad a las páginas web). Los otros lenguajes están pensados para múltiples entornos, y tiene acceso total al sistema. Pueden interactuar directamente con el hardware y el SO (Leer/escribir archivos, abrir sockets de red, controlar dispositivos: cámara, USB, GPU); mientras que **JS** no puede acceder directamente al sistema operativo dependiendo de ****APIs*** del navegador.
+
+> [!NOTE]
+><ins>ECMAScript</ins> (ES) es el estándar en el que se basa JavaScript. Es como las "reglas oficiales" que definen cómo debe funcionar el lenguaje.
+> ***ECMAScript*** = estándar (las reglas escritas).**JavaScript** = implementación práctica.
+
+> [!NOTE]
+>El <ins>event loop</ins> es un mecanismo de **JavaScript** que ejecuta tareas asíncronas de forma no bloqueante. Funciona en un ciclo infinito, esperando por una tarea, ejecutando la tarea requerida y volviendo a esperar por una nueva tarea (Gestiona la cola de tareas, determina el orden de ejecución, sincroniza la ejecución de tareas, revisa la cola de tareas y ejecutar cada una de ellas en orden)
+
+Versiones más importantes de ECMAScript:
+
+|Año|	Versión|	Novedades Principales|
+|---|--------|----------------------|
+|2009|	ES5|	"use strict", JSON.parse, Array.map/filter|
+|2015|	ES61 (ES2015)|	let/const, arrow functions, promesas, clases, template strings|
+|2016|	ES7|	Array.includes(), operador ** (exponenciación)|
+|2017|	ES8|	async/await, Object.values()/entries()|
+|2020|	ES11|	Optional Chaining (?.), Nullish Coalescing (??)|
+|2023|	ES14|	Array.findLast(), Hashbang Grammar|
 
 
-
-7. Diseñado para la web (y más allá)
-Nativo en navegadores: Es el único lenguaje que todos los navegadores entienden nativamente (junto con WebAssembly, pero este es de bajo nivel).
-Asíncrono y orientado a eventos: Maneja operaciones no bloqueantes (como peticiones HTTP) con callbacks, promesas y async/await.
-
-8. Compatibilidad y evolución
-ECMAScript: El estándar que define JS se actualiza casi anualmente (ES6, ES2023, etc.), añadiendo mejoras como let/const, arrow functions, módulos, etc.
-Backward compatibility: Código escrito hace 20 años aún funciona en navegadores modernos. Compatibilidad con todas las versiones: Código de 1995 sigue funcionando hoy. (¡pero puede tener vulnerabilidades!).
-ECMAScript: El "manual de instrucciones" de JavaScript 📜
-¿Qué es?
-Es el estándar oficial que define cómo debe funcionar JavaScript. Es como la receta de un pastel que todos los fabricantes de navegadores (Chrome, Firefox, etc.) siguen. Actualizaciones anuales (ES6, ES2023, etc.) Cada año se añaden mejoras al lenguaje, como si actualizaras tu teléfono.
-9. Backward Compatibility: "Lo viejo no muere" 🕰️
-¿Qué significa?
-Que el código JavaScript escrito hace décadas sigue funcionando en navegadores modernos sin modificaciones. 
-Ventaja: No hay que reescribir todo cada año. Desventaja: Código antiguo puede tener vulnerabilidades o malas prácticas.
-Comparación: Imagina que tu PlayStation 5 pudiera ejecutar juegos de PlayStation 1 sin cambios. ¡Genial!, pero algunos juegos antiguos tendrían gráficos feos o bugs.
-¿Por qué es importante entender esto?
-Para desarrolladores: Usa features modernas (ES6+) para escribir código más limpio y seguro. Pero comprueba la compatibilidad con navegadores antiguos si tu audiencia los usa (ej: IE11).
-Para usuarios: Los sitios web no se "rompen" con el tiempo, pero pueden volverse lentos o inseguros si usan código obsoleto.
-10. 📦 El ecosistema más grande (NPM) 1.5 millones de paquetes públicos (muchos abandonados). Instalación trivial pero con riesgo de "dependency hell"
+6. **JavaScript** cuenta con un ecosistema rico (NMP) y diverso de bibliotecas y frameworks que mejoran considerablemente sus capacidades y hacen que el desarrollo sea más eficientete. Poseé 1.5 millones de paquetes públicos (muchos abandonados). Instalación trivial pero con riesgo de "dependency hell"
 11. Funciones = Objetos VIP
+avaScript → Ecosistema Fragmentado (npm)
+No hay "baterías incluidas": Necesitas librerías para casi todo.
+
+Ej: axios (HTTP), moment (fechas), lodash (utilidades).
+
+Ventaja: Gran flexibilidad.
+
+Desventaja: Dependencia excesiva de paquetes externos.Otros Lenguajes → Librerías Estándar Robustas
+Python:
+
+requests (HTTP), datetime (fechas), os (sistema) vienen incluidos.
+
+Java:
+
+Colecciones, concurrencia, networking, etc., en la JDK.
+
 Puedes:Pasar funciones como argumentos. Devolver funciones
 12. Coerción de tipos
 Conversiones automáticas que ahorran código pero causan confusiones:
