@@ -65,7 +65,8 @@
 > [!NOTE]
 ><ins>hoisting:</ins> *comportamiento donde las declaraciones de variables y funciones se mueven al inicio de su ámbito **(scope)** antes de que se ejecute el código*
 
-3. Programación asincrónica: **JS** permite ejecutar tareas simultáneamente sin bloquear el hilo principal, lo que la hace ideal para gestionar operaciones que consumen mucho tiempo, como solicitudes de red o la lectura de archivos. Dos operaciones asíncronas comunes en **JS** son las devoluciones de llamadas y las promesas. Frente a otros lenguajes:
+3. Programación asincrónica: **JS** permite ejecutar tareas simultáneamente sin bloquear el hilo principal, lo que la hace ideal para gestionar operaciones que consumen mucho tiempo, como solicitudes de red o la lectura de archivos. Dos operaciones asíncronas comunes en **JS** son las devoluciones de llamadas y las promesas.
+Frente a otros lenguajes:
    
 |JavaScript|	Otros Lenguajes|
 |----------|------------------|
@@ -75,7 +76,7 @@
 |Ideal para tareas de espera (APIs, archivos)|	Mejor para procesamiento en paralelo (videos, juegos)|
 
 4. Programación síncrona: Las tareas se ejecutan una tras otra, en orden. Si una operación tarda (como leer un archivo o hacer una consulta a una ***API***), el programa se detiene hasta que termine.
-   **JS** es síncrono por defecto, pero la gran diferencia frente a otros lenguajes es que no tiene operaciones de Entrada/Salida (Input/Output) síncronas por defecto en el navegador. No bloquean el hilo       principal mientras espera una respuesta y el código sigue ejecutándose (por ejemplo, una ***API***). En otros lenguajes, si no usan hilos o técnicas async, el programa se congela hasta que la operación termine.
+   **JS** es síncrono por defecto, pero la gran diferencia frente a otros lenguajes es que no tiene operaciones de Entrada/Salida (Input/Output) síncronas por defecto. No bloquean el hilo principal mientras espera una respuesta y el código sigue ejecutándose (por ejemplo, una ***API***). En otros lenguajes, si no usan hilos o técnicas async, el programa se congela hasta que la operación termine.
 
 5. Compatibilidad y evolución: **JS** es un Código escrito hace 20 años que aún funciona en navegadores modernos. ECMAScript se actualiza casi anualmente, añadiendo mejoras como let/const, arrow functions, módulos, etc., siendo la implemetación más famosa. Esto tiene la ventaja de que no hay que reescribir todo cada año. Aunque el Código antiguo puede tener vulnerabilidades o malas prácticas.
    Otros lenguajes (***Python, Java, C#***) son lenguajes + implementaciones oficiales, es decir, no separan "estándar" de "implementación" tan claramente. Suelen evolucionar más lento y con control centralizado.
@@ -100,51 +101,14 @@ Versiones más importantes de ECMAScript:
 |2023|	ES14|	Array.findLast(), Hashbang Grammar|
 
 
-6. **JavaScript** cuenta con un ecosistema rico (NMP) y diverso de bibliotecas y frameworks que mejoran considerablemente sus capacidades y hacen que el desarrollo sea más eficientete. Poseé 1.5 millones de paquetes públicos (muchos abandonados). Instalación trivial pero con riesgo de "dependency hell"
-11. Funciones = Objetos VIP
-avaScript → Ecosistema Fragmentado (npm)
-No hay "baterías incluidas": Necesitas librerías para casi todo.
-
-Ej: axios (HTTP), moment (fechas), lodash (utilidades).
-
-Ventaja: Gran flexibilidad.
-
-Desventaja: Dependencia excesiva de paquetes externos.Otros Lenguajes → Librerías Estándar Robustas
-Python:
-
-requests (HTTP), datetime (fechas), os (sistema) vienen incluidos.
-
-Java:
-
-Colecciones, concurrencia, networking, etc., en la JDK.
-
-Puedes:Pasar funciones como argumentos. Devolver funciones
-12. Coerción de tipos
-Conversiones automáticas que ahorran código pero causan confusiones:
-
-   ``` "5" + 3 = "53" // Concatena (el + prefiere strings)```\
+6. **JavaScript** cuenta con un ecosistema muy rico (NMP) de bibliotecas y herramientas de terceros que amplían sus capacidades, optimizan el desarrollo y lo hacen que sea más eficientete. Las bibliiotecas están compuestas por paquetes pequeños y especializados, de instalación rápida
    
-   ``` "5" - 3 = 2    // Resta, convierte "5" a número```\
+   `npm install jQuery  # Instala una librería que permite agregar interactividad y efectos visuales en un sitio web.`
    
-   ``` [] == ![]      // true (¡sí, leíste bien!)```
-  
- &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Solución: Usar === (comparación estricta).
-Por qué es único JavaScript?
-Ningún otro lenguaje combina:
-Asincronía sin hilos.
-Prototipos + sintaxis de clases.
-Dominio total en navegadores y servidores.
-Flexibilidad extrema (para bien o mal 😅).
-JavaScript se diferencia de otros lenguajes de programación en que se ejecuta directamente en el navegador web, es dinámico y está orientado a eventos. 
-JavaScript se ejecuta en el navegador
-No requiere instalaciones ni plugins adicionales 
-Se interpreta en tiempo de ejecución, lo que permite probar y iterar el código rápidamente 
-El navegador recibe el código JavaScript en su forma de texto original y lo ejecuta 
-JavaScript es dinámico 
-Permite cambiar el tipo de una variable durante la ejecución del programa
-Es un lenguaje de tipado débil, lo que significa que las conversiones de tipo se realizan de manera implícita
+   Las biblilotecas están muy especializadas por lo que solo importas lo que se necesita (gran flexibilidad), aunque esto hace que se dependa de muchas librerías. Sus actualizaciones frecuentes pueden rompen la compatibilidad, y hay un gran número de ellos abandonados porque el 70% de npm depende de librerías mantenidas por una sola persona.
+   Otros lenguajes, tienen paquetes más grandes y completos, con sistemas más jerarquizados e incluidos en otros programas. estos paquetes tienen soporte a largo plazo, y las empresas son las que mantienen las librerías clave (Oracle, Red hat). Por esto, pueden ser mejores para realizar proyectos grandes y estables, con soporte empresarial.
 
-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;En definitiva, **JavaScript** se ejecuta directamente en el navegador web en tiempo de ejecución, lo que le permite probar e iterar el código rápidamente. Es dinámico, con gran flexibilidad y orientado a eventos. No requiere instalación ni plugins adicionales y maneja un gran número de librerías especializadas. Es un lenguaje compatible con sus versiones antiguas y que se sigue actualizando casi anualmente.
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
