@@ -12,43 +12,53 @@
    - Java es un lenguaje compilado y su código fuente debe compilarse en código de bytes antes de su ejecución.
 2. Es Dinámico y flexible. No requiere declarar tipos de variables:
    - En JavaScript (lenguajes de tipado dinámico) No se especifica el tipo de variable, y se puede reasignar. Por ejemplo,
-   - 
-      ```let x = 5;      // x es number```
+ 
+         let x = 5;      // x es number
      
-      ```x = "hola";     // Ahora x es string (¡sin error!)```
+         x = "hola";     // Ahora x es string (¡sin error!)
      
    - En otros lenguajes (lenguajes de tipado estático), se debe declarar el tipo, y no se puede cambiar. Por ejemplo,
-   - 
-     ```int x = 5;      // x siempre será int```
+ 
+         int x = 5;      // x siempre será int   
      
-     ```x = "hola";     // ¡Error de compilación!```
+         x = "hola";     // ¡Error de compilación!
      
 3. Tiene un alcance (scope) diferente a otros lenguajes, ya que combina alcance de función (var) y bloque (let/const).
    &nbsp;&nbsp;&nbsp;Alcance de Función (Function Scope)
 
-      ```function ejemplo() {```
+            function ejemplo() {
    
-        ```if (true) {```
+               if (true) {
    
-        ```var x = 10; // ¡Alcance de FUNCIÓN!```
+               var x = 10; // ¡Alcance de FUNCIÓN!
    
-      ```}```
+            }
    
-      ```console.log(x); // 10 (accesible fuera del bloque if)```
+            console.log(x); // 10 (accesible fuera del bloque if)
+   
    &nbsp;&nbsp;&nbsp;Alcance de Bloque (Block Scope)
    
-      ```function ejemplo() {```
-         ```if (true) {```
-           ```let y = 20;   // Alcance de BLOQUE```
-           ```const z = 30; // Alcance de BLOQUE```
-         ```}```
-         ```console.log(y); // ¡Error! y no está definida aquí```
-         ```console.log(z); // ¡Error! z no está definida aquí```
-      ```}
+            function ejemplo() {
+   
+               if (true) {
+   
+               let y = 20;   // Alcance de BLOQUE
+   
+               const z = 30; // Alcance de BLOQUE
+   
+             }
+   
+             console.log(y); // ¡Error! y no está definida aquí   
+   
+             console.log(z); // ¡Error! z no está definida aquí
+   
+             }
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Otros lenguajes suelen ser más consistentes (todo bloque o todo función). En el caso de ***Python/Ruby*** se parecen a **JavScript** con `let`, pero sin el problema histórico de `var`. En el caso de ***C/Java/C#***, siempre bloque (las variables viven dentro de `{}`)
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp En el caso de variables en bucles, con **JS** `var` se comparte en iteraciones (¡problemas con <ins>closures</ins>! <Función que recuerda su entorno original, incluso cuando se ejecuta fuera de ese entorno..), pero se resuelve con `let`; similar en ***Python/Ruby***. Pero en ***C/Java/C#***, cada iteración tiene su propia variable.
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;En **JS** `var` se "eleva" (<ins>hoisting</ins> <comportamiento donde las declaraciones de variables y funciones se mueven al inicio de su ámbito *(scope)* antes de que se ejecute el código), `let/const` también pero no se inicializan. En el caso de ***C/Java/C#*** no aplica, y se produce un error si usas antes de declarar.
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;En el caso de variables en bucles, con **JS** `var` se comparte en iteraciones (¡problemas con  <ins>closures:</ins>! *Función que recuerda su entorno original, incluso cuando se ejecuta fuera de ese entorno*), pero se resuelve con `let`; similar en ***Python/Ruby***. Pero en ***C/Java/C#***, cada iteración tiene su propia variable.
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;En **JS** `var` se "eleva" (<ins>hoisting:</ins> *comportamiento donde las declaraciones de variables y funciones se mueven al inicio de su ámbito **(scope)** antes de que se ejecute el código*), `let/const` también pero no se inicializan. En el caso de ***C/Java/C#*** no aplica, y se produce un error si usas antes de declarar.
 
 D. Programación asincrónica--------------
 
@@ -79,7 +89,9 @@ Puedes:Pasar funciones como argumentos. Devolver funciones
 Conversiones automáticas que ahorran código pero causan confusiones:
 
    ``` "5" + 3 = "53" // Concatena (el + prefiere strings)```\
+   
    ``` "5" - 3 = 2    // Resta, convierte "5" a número```\
+   
    ``` [] == ![]      // true (¡sí, leíste bien!)```
   
  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Solución: Usar === (comparación estricta).
