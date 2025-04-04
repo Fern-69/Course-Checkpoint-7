@@ -10,6 +10,7 @@
 1. Es un lenguaje que se ejecuta directamente en el navegador, sin compilación previa (Interpretado):
    - JavaScript puede ejecutarse directamente en el navegador sin precompilación. Por ejemplo, al abrir un archivo HTML con código JavaScript en un navegador, este lo interpreta y ejecuta línea por línea.
    - Java es un lenguaje compilado y su código fuente debe compilarse en código de bytes antes de su ejecución.
+     
 2. Es Dinámico y flexible. No requiere declarar tipos de variables:
    - En JavaScript (lenguajes de tipado dinámico) No se especifica el tipo de variable, y se puede reasignar. Por ejemplo,
  
@@ -60,7 +61,14 @@
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;En **JS** `var` se "eleva" (<ins>hoisting:</ins> *comportamiento donde las declaraciones de variables y funciones se mueven al inicio de su ámbito **(scope)** antes de que se ejecute el código*), `let/const` también pero no se inicializan. En el caso de ***C/Java/C#*** no aplica, y se produce un error si usas antes de declarar.
 
-D. Programación asincrónica--------------
+3. Programación asincrónica: **JS** permite ejecutar tareas simultáneamente sin bloquear el hilo principal, lo que la hace ideal para gestionar operaciones que consumen mucho tiempo, como solicitudes de red o la lectura de archivos. Dos operaciones asíncronas comunes en **JS** son las devoluciones de llamadas y las promesas. Frente a otros lenguajes:
+        
+|<span style="color:orange">JavaScript</span>|	Otros Lenguajes|
+|----------|------------------|
+|Un solo hilo (un chef)|	Múltiples hilos (varios chefs)|
+Nunca se bloquea: el chef siempre está haciendo algo.	Pueden bloquearse (chefs esperando).
+Más lento en tareas pesadas (ej: cálculos grandes).	Más rápidos en tareas pesadas (si usan bien los hilos).
+Ideal para tareas de espera (APIs, archivos).	Mejor para procesamiento en paralelo (videos, juegos).
 
 
 
