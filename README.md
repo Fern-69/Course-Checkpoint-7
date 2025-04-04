@@ -144,6 +144,110 @@
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 ## ¿Cuáles son algunos tipos de datos JS?
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+En JavaScript, los datos se clasifican en dos categorías principales:
+
+Primitivos: Inmutables y se accede por valor.
+
+No primitivos (Objetos): Mutables y se accede por referencia.
+
+🔹 Tipos Primitivos (7 tipos)
+Tipo	Descripción	Ejemplo
+string	Texto (cadena de caracteres).	"Hola", 'Mundo'
+number	Números (enteros, decimales, NaN, Infinity).	42, 3.14, NaN
+boolean	Valor lógico (true o false).	true, false
+undefined	Variable no asignada.	let x; (x es undefined)
+null	Valor nulo (asignado intencionalmente).	let y = null;
+symbol	Valor único e inmutable (ES6).	Symbol("id")
+bigint	Números enteros muy grandes (ES2020).	12345678901234567890n
+Ejemplos:
+javascript
+Copy
+let nombre = "Ana";          // string  
+let edad = 25;               // number  
+let esMayor = true;          // boolean  
+let direccion;               // undefined  
+let telefono = null;         // null  
+let id = Symbol("id");       // symbol  
+let bigNum = 9007199254740991n; // bigint  
+🔹 Tipos No Primitivos (Objetos)
+Son mutables y se accede por referencia (incluyen arrays, funciones, fechas, etc.):
+
+Tipo	Descripción	Ejemplo
+object	Colección de pares clave-valor.	{ nombre: "Ana", edad: 25 }
+array	Lista ordenada de valores.	[1, 2, 3]
+function	Bloque de código reutilizable.	function sumar(a, b) { ... }
+Date	Fecha y hora.	new Date()
+RegExp	Expresiones regulares.	/\d+/g
+Ejemplos:
+javascript
+Copy
+let persona = { nombre: "Carlos", edad: 30 };  // object  
+let numeros = [1, 2, 3];                       // array  
+function saludar() { console.log("Hola"); }     // function  
+let hoy = new Date();                           // Date  
+let regex = /abc/;                              // RegExp  
+🔍 Diferencias Clave
+1. Primitivos vs No Primitivos
+Primitivos:
+
+Ocupan tamaño fijo en memoria.
+
+Se comparan por valor:
+
+javascript
+Copy
+let a = 3;  
+let b = 3;  
+console.log(a === b); // true  
+No primitivos:
+
+Se comparan por referencia (aunque tengan el mismo contenido):
+
+javascript
+Copy
+let arr1 = [1, 2];  
+let arr2 = [1, 2];  
+console.log(arr1 === arr2); // false (¡distintas referencias!)  
+2. typeof y Casos Especiales
+javascript
+Copy
+typeof "Hola";        // "string"  
+typeof 42;            // "number"  
+typeof true;          // "boolean"  
+typeof undefined;     // "undefined"  
+typeof null;          // "object" (¡error histórico en JS!)  
+typeof {};            // "object"  
+typeof [];            // "object"  
+typeof function(){};  // "function"  
+🚀 Conversión de Tipos (Coerción)
+JavaScript convierte tipos automáticamente en operaciones:
+
+javascript
+Copy
+let numero = "5" + 2;    // "52" (concatena)  
+let suma = "5" - 2;      // 3 (convierte a número)  
+Evítalo usando conversión explícita:
+
+javascript
+Copy
+Number("123");  // 123  
+String(123);    // "123"  
+Boolean(1);     // true  
+✅ Buenas Prácticas
+Usa === en vez de == para evitar coerción implícita.
+
+Prefiere const para valores fijos y let para variables.
+
+Verifica tipos con typeof o Array.isArray().
+
+🎯 Conclusión
+JavaScript tiene 7 tipos primitivos y objetos (no primitivos).
+
+Los primitivos son inmutables; los objetos, mutables.
+
+typeof null devuelve "object" (es un error histórico).
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
 ---------------------------------------------------------------------------------------------------------------------------------
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
