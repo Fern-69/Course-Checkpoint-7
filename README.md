@@ -144,114 +144,100 @@
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 ## ¿Cuáles son algunos tipos de datos JS?
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-En JavaScript, los datos se clasifican en dos categorías principales:
 
-Primitivos: Inmutables y se accede por valor.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;En JavaScript, los datos se clasifican en dos categorías principales:
 
-No primitivos (Objetos): Mutables y se accede por referencia.
+ 1. **Primitivos:** Son datos <ins>Inmutables</ins>. Se accede a ellos por valor (7 tipos), y su tamaño en memoria es fijo. No tienen métodos o propiedades propios, ya que son valores simples almacenados directamente en la memoria.
 
-🔹 Tipos Primitivos (7 tipos)
-Tipo	Descripción	Ejemplo
-string	Texto (cadena de caracteres).	"Hola", 'Mundo'
-number	Números (enteros, decimales, NaN, Infinity).	42, 3.14, NaN
-boolean	Valor lógico (true o false).	true, false
-undefined	Variable no asignada.	let x; (x es undefined)
-null	Valor nulo (asignado intencionalmente).	let y = null;
-symbol	Valor único e inmutable (ES6).	Symbol("id")
-bigint	Números enteros muy grandes (ES2020).	12345678901234567890n
-Ejemplos:
-javascript
-Copy
-let nombre = "Ana";          // string  
-let edad = 25;               // number  
-let esMayor = true;          // boolean  
-let direccion;               // undefined  
-let telefono = null;         // null  
-let id = Symbol("id");       // symbol  
-let bigNum = 9007199254740991n; // bigint  
-🔹 Tipos No Primitivos (Objetos)
-Son mutables y se accede por referencia (incluyen arrays, funciones, fechas, etc.):
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
-Tipo	Descripción	Ejemplo
-object	Colección de pares clave-valor.	{ nombre: "Ana", edad: 25 }
-array	Lista ordenada de valores.	[1, 2, 3]
-function	Bloque de código reutilizable.	function sumar(a, b) { ... }
-Date	Fecha y hora.	new Date()
-RegExp	Expresiones regulares.	/\d+/g
-Ejemplos:
-javascript
-Copy
-let persona = { nombre: "Carlos", edad: 30 };  // object  
-let numeros = [1, 2, 3];                       // array  
-function saludar() { console.log("Hola"); }     // function  
-let hoy = new Date();                           // Date  
-let regex = /abc/;                              // RegExp  
-🔍 Diferencias Clave
-1. Primitivos vs No Primitivos
-Primitivos:
+   |**Tipo**|	**Descripción**|	**Ejemplo**| **Código JS**|
+   |--------|-----------------|-------------|--------------|
+   |string|	Texto (cadena de caracteres)|	"Hola", 'Mundo'| let nombre = "Ana"; |
+   |number	|Números (enteros, decimales, NaN, Infinity)|	42, 3.14, NaN| let edad = 25; | 
+   |boolean|	Valor lógico (true o false)|	true, false |let esMayor = true; |
+   |undefined|	Variable no asignada.|	let x; (x es undefined)|let direccion; 
+   |null|	Valor nulo (asignado intencionalmente)|	let y = null;| let telefono = null;|
+   |symbol|	Valor único e inmutable (ES6)|	Symbol("id");| let id = Symbol("id");1
+   |bigint|	Números enteros muy grandes (ES2020)|	12345678901234567890n| let bigNum = 9007199254740991n;|
+   
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
-Ocupan tamaño fijo en memoria.
+ 2. **No primitivos** (Objetos): Son <ins>Mutables</ins>. Se accede por referencia, y aunque tengan el mismo contenido, pueden tener múltiples referencias al mismo objeto. El tamaño que ocupan en meoria es dinámico porque puede variar (crecer o reducirse) durante la ejecución del programa, dependiendo de su contenido. Cada tipo de objeto tiene sus propios métodos y propiedades definidas.
+    
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+   |**Tipo**|	**Descripción**|	**Ejemplo**| **Código JS**|**Métodos**|
+   |--------|----------------|-------------|--------------|------------|
+   |object|	Colección de pares clave-valor|	{ nombre: "Ana", edad: 25 }| let persona = { nombre: "Carlos", edad: 30 };                                               |array|	Lista ordenada de valores|	[1, 2, 3]| let numeros = [1, 2, 3];|    
+   |function|	Bloque de código reutilizable|	function sumar(a, b) { ... }|function saludar() { console.log("Hola"); }|
+   |Date|	Fecha y hora|	new Date()| let hoy = new Date(); m|
+   |RegExp|	Expresiones regulares|	/\d+/g| let regex = /abc/;|  
+   
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+   > [!NOTE]
+   >Aunque dos objetos tengan el mismo contenido, **JavaScript** los considera diferentes porque ocupan posiciones distintas en memoria)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
-Se comparan por valor:
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Al utilizar el operador `typeof` generalmente devuelve el tipo de dato esperado, pero tiene algunos casos especiales que pueden resultar confusos:
+- `typeof null` devuelve "object", aunque null es un dato primitvo. Esto es un error conocido desde la primera versión de JavaScript y se mantiene por compatibilidad.
+- `typeof function() {}` devuelve "function".
+- `typeof []` devuelve "object".
+- `typeof {}` devuelve "object".
+- `typeof NaN` devuelve "number".
+- `typeof new Number()` devuelve "object", aunque envuelva un dato primitivo.
+- `typeof new String()` devuelve "object", aunque envuelva un dato primitivo.
+- `typeof undefined` devuelve "undefined"
+   
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
-javascript
-Copy
-let a = 3;  
-let b = 3;  
-console.log(a === b); // true  
-No primitivos:
-
-Se comparan por referencia (aunque tengan el mismo contenido):
-
-javascript
-Copy
-let arr1 = [1, 2];  
-let arr2 = [1, 2];  
-console.log(arr1 === arr2); // false (¡distintas referencias!)  
-2. typeof y Casos Especiales
-javascript
-Copy
-typeof "Hola";        // "string"  
-typeof 42;            // "number"  
-typeof true;          // "boolean"  
-typeof undefined;     // "undefined"  
-typeof null;          // "object" (¡error histórico en JS!)  
-typeof {};            // "object"  
-typeof [];            // "object"  
-typeof function(){};  // "function"  
-🚀 Conversión de Tipos (Coerción)
-JavaScript convierte tipos automáticamente en operaciones:
-
-javascript
-Copy
-let numero = "5" + 2;    // "52" (concatena)  
-let suma = "5" - 2;      // 3 (convierte a número)  
-Evítalo usando conversión explícita:
-
-javascript
-Copy
-Number("123");  // 123  
-String(123);    // "123"  
-Boolean(1);     // true  
-✅ Buenas Prácticas
-Usa === en vez de == para evitar coerción implícita.
-
-Prefiere const para valores fijos y let para variables.
-
-Verifica tipos con typeof o Array.isArray().
-
-🎯 Conclusión
-JavaScript tiene 7 tipos primitivos y objetos (no primitivos).
-
-Los primitivos son inmutables; los objetos, mutables.
-
-typeof null devuelve "object" (es un error histórico).
+En resumen, **JavaScrip** tiene 7 tipos de datos ***Primitivos***, <ins>inmutables</ins>; y 5 tipos de ***objetos*** que son datos ***No Primitivos*** <ins>mutables</ins>.
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
 ---------------------------------------------------------------------------------------------------------------------------------
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 ## ¿Cuáles son las tres funciones de String en JS?
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Los ***Strings*** son datos primitivos, pero **JavaScript** temporalmente los convierte en objetos para usar estos métodos (autoboxing). Por eso parece que tienen métodos "incorporados". ***String*** tiene muchos métodos, pero los tres principales pueden ser:
+
+1. .length (Propiedad, no método): Devuelve la cantidad de caracteres en el string.
+   
+         let texto = "Hola";
+         console.log(texto.length); // Salida: 4
+   
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+2. .toUpperCase() / .toLowerCase(): Convierten el string a mayúsculas o minúsculas.
+
+         let texto = "JavaScript";
+         console.log(texto.toUpperCase()); // Salida: "JAVASCRIPT"
+         console.log(texto.toLowerCase()); // Salida: "javascript"
+         
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+3. .slice(inicio, fin): Extrae una parte del string.
+
+         console.log("Hola Mundo".slice(0, 4)); // Salida: "Hola"
+      
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;     
+Otras funciones que también son importantes y tienen mucho uso:
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+4. .includes(substring) Verifica si un string contiene otro string (devuelve true o false).
+
+         let frase = "Aprendo JavaScript";
+         console.log(frase.includes("Java")); Salida: // true
+         console.log(frase.includes("Python")); Salida: // false
+   
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;      
+5. .replace(viejo, nuevo): Reemplaza texto.
+   
+         console.log("Hola Mundo".replace("Mundo", "JavaScript")); // Salida: "Hola JavaScript"
+      
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+6. .split(separador): Divide el string en un array.
+   
+         console.log("a,b,c".split(",")); // Salida: ["a", "b", "c"]
+
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
 ---------------------------------------------------------------------------------------------------------------------------------
