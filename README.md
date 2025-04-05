@@ -168,7 +168,8 @@
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
    |**Tipo**|	**Descripción**|	**Ejemplo**| **Código JS**|**Métodos**|
    |--------|----------------|-------------|--------------|------------|
-   |object|	Colección de pares clave-valor|	{ nombre: "Ana", edad: 25 }| let persona = { nombre: "Carlos", edad: 30 };                                               |array|	Lista ordenada de valores|	[1, 2, 3]| let numeros = [1, 2, 3];|    
+   |object|	Colección de pares clave-valor|	{ nombre: "Ana", edad: 25 }| let persona = { nombre: "Carlos", edad: 30 };                                               
+   |array|	Lista ordenada de valores|	[1, 2, 3]| let numeros = [1, 2, 3];|    
    |function|	Bloque de código reutilizable|	function sumar(a, b) { ... }|function saludar() { console.log("Hola"); }|
    |Date|	Fecha y hora|	new Date()| let hoy = new Date(); m|
    |RegExp|	Expresiones regulares|	/\d+/g| let regex = /abc/;|  
@@ -245,123 +246,182 @@ Otras funciones que también son importantes y tienen mucho uso:
 ## ¿Qué es un condicional?
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
-Un condicional en JavaScript es una estructura de control que permite ejecutar bloques de código solo si se cumple una condición específica. Es fundamental para tomar decisiones en el código, haciendo que este sea dinámico y responda a diferentes situaciones.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Uno de los objetivos principales de la programación es crear códigos mediante los cuales las máquinas puedan realizar tareas de manera autónoma. Para lograr esto, es fundamental que los códigos sean dinámicos, es decir, que permitan a la máquina *"pensar"* y tomar decisiones según las circunstancias. Este dinamismo se logra mediante la introducción de secuencias condicionales en el código.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
-🔹 Tipos de condicionales en JavaScript
-1. if (El más básico)
-Evalúa una condición y ejecuta un bloque de código si es true:
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Un condicional en **JavaScript** es una estructura de control que permite ejecutar bloques de código solo si se cumple una condición específica. Es fundamental para tomar decisiones en el código, haciendo que este sea dinámico y responda a diferentes situaciones. Los condicionales permiten valiar datos (por ejemplo, formularios), controlar flujos de programas (por ejemplo,  menús de opciones), personalizar experiencias (por ejemplo, mostrar contenido según el usuario).
 
-javascript
-Copy
-if (edad >= 18) {
-  console.log("Eres mayor de edad");
-}
-2. if...else (Alternativa)
-Ejecuta un bloque si la condición es true y otro si es false:
-
-javascript
-Copy
-if (edad >= 18) {
-  console.log("Puedes votar");
-} else {
-  console.log("No puedes votar");
-}
-3. else if (Múltiples condiciones)
-Encadena condiciones para evaluar más de dos opciones:
-
-javascript
-Copy
-if (nota >= 90) {
-  console.log("A");
-} else if (nota >= 80) {
-  console.log("B");
-} else {
-  console.log("C");
-}
-4. switch (Para casos específicos)
-Compara un valor con múltiples opciones y ejecuta el bloque correspondiente:
-
-javascript
-Copy
-switch (diaSemana) {
-  case "lunes":
-    console.log("Inicio de semana");
-    break;
-  case "viernes":
-    console.log("¡Fin de semana cerca!");
-    break;
-  default:
-    console.log("Día normal");
-}
-5. Operador ternario (? :) (If-else en una línea)
-Condicional abreviado para asignaciones o retornos rápidos:
-
-javascript
-Copy
-let mensaje = (edad >= 18) ? "Mayor" : "Menor";
-console.log(mensaje); // "Mayor" o "Menor"
-🔍 ¿Cómo funcionan las condiciones?
-Se evalúan como true (verdadero) o false (falso).
-
-Usan comparadores como:
-
-== (igualdad, sin tipo estricto).
-
-=== (igualdad estricta, con tipo).
-
->, <, >=, <=, !=, !==.
-
-También pueden usar operadores lógicos:
-
-&& (AND): if (edad > 12 && edad < 20).
-
-|| (OR): if (esAdmin || esSuperUsuario).
-
-! (NOT): if (!estaInactivo).
-
-💡 Ejemplo práctico:
-javascript
-Copy
-let hora = 14;
-
-if (hora < 12) {
-  console.log("Buenos días");
-} else if (hora < 19) {
-  console.log("Buenas tardes"); // Esta se ejecuta
-} else {
-  console.log("Buenas noches");
-}
-⚠️ Errores comunes:
-Olvidar {} en bloques de código (aunque sea una línea, es buena práctica usarlas).
-
-**Confundir = (asignación) con == o === (comparación).
-
-No usar break en switch, lo que causa que se ejecuten todos los casos siguientes.
-
-🎯 ¿Por qué son importantes?
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;El código escrito casi se puede leer literalmente como si fuese una conversación normal. Esto facilita mucho su escritura y comprensión.
 Los condicionales permiten:
 
-Validar datos (ej: formularios).
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Las principales estructuras condiconales que se pueden escribir en **JavaScript** son las siguientes:
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
-Controlar flujos de programas (ej: menús de opciones).
+1. <ins>`if` (El más básico)</ins>: Evalúa una condición y ejecuta un bloque de código si es `true`.\
+   
+   Su sintaxis básica es:
+   
+      if (condición) {
+         hacer si se cumple;
+      }
+   
+Por ejemplo:
+   
+      if (edad >= 18) {
+        console.log("Eres mayor de edad");
+      }
+   ###### El programa evalua si la varaible "edad" cumple la concición de ser igual o mayor que 18. Si se cumple, devuelve un mensaje de "Eres mayor de edad". Si no se cumple, el programa no hace nada.
+   
+3. <ins>if...else (Alternativa)</ins>: Ejecuta un bloque si la condición es true y otro si es false. Es una evolución del anterior en la que ya aparece una segunda opción si la codición no se cumple.
+Su sintaxis básica es:
+   if (condición) {
+      hacer si se cumple la condición;
+   } else {
+      hacer si no se cumple;
+   }
+   
+   Por ejemplo:
+   if (edad >= 18) {
+     console.log("Puedes votar");
+   } else {
+     console.log("No puedes votar");
+   }
+   ###### El programa evalua si la varaible "edad" cumple la concición de ser igual o mayor que 18. Si se cumple, devuelve un mensaje de "Puedes votar". Si no se cumple, el programa devuelve otro mensaje de "No puedes votar".
 
-Personalizar experiencias (ej: mostrar contenido según el usuario).
+4. <ins>else if (Múltiples condiciones)</ins>: Encadena condiciones para evaluar más de dos opciones.
+Su sintaxis básica es:
+   if (condición_1) {
+      hacer si se cumple la condición_1; // Si no, pasa al siguiente.
+   } else if Condición_2)
+      Hacer si se cumple la condición_2
+   } else {
+      hacer si no se cumple ninguna;
+   }
+
+Por ejemplo:
+
+   if (nota >= 90) {
+     console.log("A");
+   } else if (nota >= 80) {
+     console.log("B");
+   } else {
+     console.log("C");
+   }
+
+   ###### El programa evalua si la variable "nota" cumple la condición de ser igual o mayor que 90. Si se cumple, devuelve un mensaje con la nota obtenida "A". Si no se cumple la condición anterior, pero es mayor o igual que 80 devuelve el mensaje "B". Si ninguna de las anteriores condiciones se cumplen, se devuelve el mensaje "C".
+
+4. <ins>switch (Para casos específicos)</ins>:Es una forma de controlar el flujo del programa mediante la evaluación de una expresión y la ejecución de diferentes bloques de código según el valor de esa expresión. Es una alternativa más limpia y legible que usar múltiples if...else if...else cuando hay muchas condiciones posibles.
+
+Su sintaxis básica es:
+
+switch (expresión) {
+     case valor1:
+       // Código a ejecutar si expresión === valor1
+       break;
+     case valor2:
+       // Código a ejecutar si expresión === valor2
+       break;
+     // Puedes tener tantos 'case' como necesites
+     default:
+       // Código a ejecutar si ninguno de los casos anteriores coincide
+   }
+
+- `case` : Cada ´case` compara si el valor proporcionado es igual (===) al de la expresión evaluada en el `switch`.
+- `break`: Es crucial para evitar que el código siga ejecutando los casos siguientes. Si se omite, el programa continuará ejecutando los siguientes `case` hasta encontrar un `break` o hasta el final del `switch`.
+- `default`: Es opcional y se ejecuta si ningún `case` coincide con la expresión. Es similar al `else` en un `if...else`.
+
+Por ejemplo:
+
+   let dia = 3;
+   let nombreDia;
+
+   switch (dia) {
+     case 1:
+       nombreDia = "Lunes";
+       break;
+     case 2:
+       nombreDia = "Martes";
+       break;
+     case 3:
+       nombreDia = "Miércoles";
+       break;
+     case 4:
+       nombreDia = "Jueves";
+       break;
+     case 5:
+       nombreDia = "Viernes";
+       break;
+     default:
+       nombreDia = "Fin de semana";
+   }
+
+   console.log(nombreDia); // Resultado: "Miércoles"
+
+ ###### Declaramos una variable `dia` con valor `3` y Declaramos `nombreDia` (sin valor inicial).
+ ###### Iniciamos el `switch` evaluando `dia`. Si `dia === 1` asigna "Lunes" a `nombreDia` y sale del switch; si `dia === 2` asigna "Martes" a `nombreDia` y sale del switch.....
+ ###### `default:` Si no coincide con ningún `case` asigna `nombreDia` = "Fin de Semana" y termina este condicional.
+ ###### Por último, Imprime el valor de `nombreDia`. en este caso se le ha asignado el `case 3` que es "Miércoles".
+
+5. <ins>Operador ternario (If-else en una línea):</ins> Condicional abreviado para asignaciones o retornos rápidos. (Se puede ver en el siguiente punto)
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Cuando se usa un condicional, el programa compara valores o evalúa expresiones lógicas para determinar si una condición es verdadera (***True***) o falsa (***False***). En base a ese resultado, decide qué bloque de código ejecutar. 
+En los codicionales se utilizan operadores de Asignación, Comparación y Lógicos:
+
+|Operador|	Nombre|	¿Qué hace?| Ejemplo|
+|--------|--------|------------|--------|
+|=|	Asignación|	Asigna un valor a una variable| No es comparación|Ej: let x = 5;|
+|==|	Igualdad (no estricta)|	Compara si los valores son iguales, aunque sean de distinto tipo|Ej: '5' == 5 → true|
+|===|	Igualdad estricta|	Compara si los valores y los tipos son iguales|Ej: '5' === 5 → false|
+|!=|	Desigualdad (no estricta)|	Compara si los valores son diferentes, sin importar el tipo|Ej: '5' != 5 → false|
+|!==|	Desigualdad estricta	Compara si los valores o los tipos son diferentes|Ej: '5' !== 5 → true|
+|>|	Mayor que|	Verifica si el valor de la izquierda es mayor que el de la derecha|Ej: 7 > 5 → true|
+|<|	Menor que|	Verifica si el valor de la izquierda es menor que el de la derecha|Ej: 7 < 5 → false|
+|>=|	Mayor o igual que|	Verifica si el valor de la izquierda es mayor o igual que el de la derecha|Ej: 7 >= 5 → true|
+|<=|	Menor o igual que|	Verifica si el valor de la izquierda es menor o igual que el de la derecha|Ej: 7 >= 7 → true|
+
+> [!WARNING]
+> No Confundir = (asignación) con == (comparación) o === (comparación estricta).
+
+|Operadores lógicos |Nombre|	¿Qué hace?| Ejemplo|
+|-------------------|------|------------|--------|
+|\|\| |OR lógico|Es true si al menos una de las condiciones es verdadera|if (esAdmin || esSuperUsuario)|
+|&&| AND lógico|Solo es true si ambas condiciones son verdaderas|if (edad > 18 && tieneLicencia)|
+|!| NOT lógico|Niega una condición, es decir, cambia true a false y viceversa|if (!estaInactivo)|
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+En el siguiente enlace se pueden accder a más información y ejemplos del código condicional en **JavaScript**:
+[Documentación Condicionales en JavaCript](https://developer.mozilla.org/es/docs/Learn_web_development/Core/Scripting/Conditionals)
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
 ---------------------------------------------------------------------------------------------------------------------------------
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 ## ¿Qué es un operador ternario?
+
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-Operador Ternario en JavaScript
-El operador ternario (? :) es una forma concisa de escribir un condicional if...else en una sola línea. Es especialmente útil para asignaciones rápidas o ejecuciones simples basadas en una condición.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;El operador Ternario en JavaScript es una forma concisa de escribir un condicional if...else en una sola línea. Es especialmente útil para asignaciones rápidas o ejecuciones simples basadas en una condición.
 
-🔹 Sintaxis Básica
-javascript
-Copy
-condición ? expresiónSiVerdadero : expresiónSiFalso;
-condición: Una expresión que se evalúa como true o false.
+Su sintáxis básica es:
 
-expresiónSiVerdadero: Se ejecuta si la condición es true.
+   condición ? expresiónSiVerdadero : expresiónSiFalso;
+   //condición: Una expresión que se evalúa como true o false.
+   //expresiónSiVerdadero: Se ejecuta si la condición es true.
+   //expresiónSiFalso: Se ejecuta si la condición es false.
 
-expresiónSiFalso: Se ejecuta si la condición es false.
+Esto equivale a la estructura condicional:
+
+   if (condición) {
+     expresiónSiVerdadero;
+   } else {
+     expresiónSiFalso;
+   }
+
+
+Un ejemplo práctico:
+
+
+
 
 📌 Ejemplos Prácticos
 Asignar un valor según una condición:
@@ -417,8 +477,16 @@ Copy
 <div>
   {usuarioLogueado ? <Perfil /> : <Login />}
 </div>
+
+     
 Conclusión
 El operador ternario es una herramienta poderosa para simplificar condiciones simples. Úsalo cuando necesites tomar decisiones rápidas y mantener tu código limpio. Para lógica más compleja, sigue usando if...else o switch.
+Código más corto y legible (para condiciones simples).
+
+No requiere {} ni return en funciones de una línea.
+
+Puede anidarse (aunque no es recomendable por legibilidad)
+     
 ---------------------------------------------------------------------------------------------------------------------------------
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 ## ¿Cuál es la diferencia entre una declaración de función y una expresión de función?
