@@ -245,11 +245,180 @@ Otras funciones que también son importantes y tienen mucho uso:
 ## ¿Qué es un condicional?
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
+Un condicional en JavaScript es una estructura de control que permite ejecutar bloques de código solo si se cumple una condición específica. Es fundamental para tomar decisiones en el código, haciendo que este sea dinámico y responda a diferentes situaciones.
+
+🔹 Tipos de condicionales en JavaScript
+1. if (El más básico)
+Evalúa una condición y ejecuta un bloque de código si es true:
+
+javascript
+Copy
+if (edad >= 18) {
+  console.log("Eres mayor de edad");
+}
+2. if...else (Alternativa)
+Ejecuta un bloque si la condición es true y otro si es false:
+
+javascript
+Copy
+if (edad >= 18) {
+  console.log("Puedes votar");
+} else {
+  console.log("No puedes votar");
+}
+3. else if (Múltiples condiciones)
+Encadena condiciones para evaluar más de dos opciones:
+
+javascript
+Copy
+if (nota >= 90) {
+  console.log("A");
+} else if (nota >= 80) {
+  console.log("B");
+} else {
+  console.log("C");
+}
+4. switch (Para casos específicos)
+Compara un valor con múltiples opciones y ejecuta el bloque correspondiente:
+
+javascript
+Copy
+switch (diaSemana) {
+  case "lunes":
+    console.log("Inicio de semana");
+    break;
+  case "viernes":
+    console.log("¡Fin de semana cerca!");
+    break;
+  default:
+    console.log("Día normal");
+}
+5. Operador ternario (? :) (If-else en una línea)
+Condicional abreviado para asignaciones o retornos rápidos:
+
+javascript
+Copy
+let mensaje = (edad >= 18) ? "Mayor" : "Menor";
+console.log(mensaje); // "Mayor" o "Menor"
+🔍 ¿Cómo funcionan las condiciones?
+Se evalúan como true (verdadero) o false (falso).
+
+Usan comparadores como:
+
+== (igualdad, sin tipo estricto).
+
+=== (igualdad estricta, con tipo).
+
+>, <, >=, <=, !=, !==.
+
+También pueden usar operadores lógicos:
+
+&& (AND): if (edad > 12 && edad < 20).
+
+|| (OR): if (esAdmin || esSuperUsuario).
+
+! (NOT): if (!estaInactivo).
+
+💡 Ejemplo práctico:
+javascript
+Copy
+let hora = 14;
+
+if (hora < 12) {
+  console.log("Buenos días");
+} else if (hora < 19) {
+  console.log("Buenas tardes"); // Esta se ejecuta
+} else {
+  console.log("Buenas noches");
+}
+⚠️ Errores comunes:
+Olvidar {} en bloques de código (aunque sea una línea, es buena práctica usarlas).
+
+**Confundir = (asignación) con == o === (comparación).
+
+No usar break en switch, lo que causa que se ejecuten todos los casos siguientes.
+
+🎯 ¿Por qué son importantes?
+Los condicionales permiten:
+
+Validar datos (ej: formularios).
+
+Controlar flujos de programas (ej: menús de opciones).
+
+Personalizar experiencias (ej: mostrar contenido según el usuario).
 ---------------------------------------------------------------------------------------------------------------------------------
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 ## ¿Qué es un operador ternario?
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Operador Ternario en JavaScript
+El operador ternario (? :) es una forma concisa de escribir un condicional if...else en una sola línea. Es especialmente útil para asignaciones rápidas o ejecuciones simples basadas en una condición.
 
+🔹 Sintaxis Básica
+javascript
+Copy
+condición ? expresiónSiVerdadero : expresiónSiFalso;
+condición: Una expresión que se evalúa como true o false.
+
+expresiónSiVerdadero: Se ejecuta si la condición es true.
+
+expresiónSiFalso: Se ejecuta si la condición es false.
+
+📌 Ejemplos Prácticos
+Asignar un valor según una condición:
+
+javascript
+Copy
+let edad = 20;
+let mensaje = edad >= 18 ? "Mayor de edad" : "Menor de edad";
+console.log(mensaje); // "Mayor de edad"
+Ejecutar funciones diferentes:
+
+javascript
+Copy
+let esUsuarioPremium = true;
+esUsuarioPremium ? mostrarContenidoPremium() : mostrarContenidoGratis();
+Devolver valores en una arrow function:
+
+javascript
+Copy
+const esPar = (num) => (num % 2 === 0 ? "Sí" : "No");
+console.log(esPar(4)); // "Sí"
+🔥 Ventajas
+Código más corto y legible (para condiciones simples).
+
+No requiere {} ni return en funciones de una línea.
+
+Puede anidarse (aunque no es recomendable por legibilidad):
+
+javascript
+Copy
+let nota = 85;
+let resultado = nota >= 90 ? "A" : nota >= 80 ? "B" : "C";
+console.log(resultado); // "B"
+⚠️ Precauciones
+No abuses del anidamiento (puede volverse difícil de leer):
+
+javascript
+Copy
+// ❌ Difícil de entender
+let x = a ? b : c ? d : e;
+Usa if...else para lógica compleja (múltiples líneas o acciones).
+
+💡 Comparación con if...else
+Operador Ternario	if...else
+let x = condición ? a : b;	if (condición) { x = a; } else { x = b; }
+Ideal para asignaciones rápidas.	Ideal para bloques de código largos.
+Retorna un valor directamente.	No retorna valores (a menos que uses return).
+Ejemplo en React (JSX)
+El ternario es muy usado en React para renderizado condicional:
+
+jsx
+Copy
+<div>
+  {usuarioLogueado ? <Perfil /> : <Login />}
+</div>
+Conclusión
+El operador ternario es una herramienta poderosa para simplificar condiciones simples. Úsalo cuando necesites tomar decisiones rápidas y mantener tu código limpio. Para lógica más compleja, sigue usando if...else o switch.
 ---------------------------------------------------------------------------------------------------------------------------------
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 ## ¿Cuál es la diferencia entre una declaración de función y una expresión de función?
