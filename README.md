@@ -261,9 +261,9 @@ Los condicionales permiten:
    
    Su sintaxis básica es:
    
-      if (condición) {
-         hacer si se cumple;
-      }
+         if (condición) {
+            hacer si se cumple;
+         }
    
 Por ejemplo:
    
@@ -272,41 +272,44 @@ Por ejemplo:
       }
    ###### El programa evalua si la varaible "edad" cumple la concición de ser igual o mayor que 18. Si se cumple, devuelve un mensaje de "Eres mayor de edad". Si no se cumple, el programa no hace nada.
    
-3. <ins>if...else (Alternativa)</ins>: Ejecuta un bloque si la condición es true y otro si es false. Es una evolución del anterior en la que ya aparece una segunda opción si la codición no se cumple.
+2. <ins>if...else (Alternativa)</ins>: Ejecuta un bloque si la condición es true y otro si es false. Es una evolución del anterior en la que ya aparece una segunda opción si la codición no se cumple.
 Su sintaxis básica es:
-   if (condición) {
-      hacer si se cumple la condición;
-   } else {
-      hacer si no se cumple;
-   }
+
+         if (condición) {
+            hacer si se cumple la condición;
+         } else {
+            hacer si no se cumple;
+         }
    
    Por ejemplo:
-   if (edad >= 18) {
-     console.log("Puedes votar");
-   } else {
-     console.log("No puedes votar");
-   }
+   
+         if (edad >= 18) {
+           console.log("Puedes votar");
+         } else {
+           console.log("No puedes votar");
+         }
    ###### El programa evalua si la varaible "edad" cumple la concición de ser igual o mayor que 18. Si se cumple, devuelve un mensaje de "Puedes votar". Si no se cumple, el programa devuelve otro mensaje de "No puedes votar".
 
-4. <ins>else if (Múltiples condiciones)</ins>: Encadena condiciones para evaluar más de dos opciones.
+3. <ins>else if (Múltiples condiciones)</ins>: Encadena condiciones para evaluar más de dos opciones.
 Su sintaxis básica es:
-   if (condición_1) {
-      hacer si se cumple la condición_1; // Si no, pasa al siguiente.
-   } else if Condición_2)
-      Hacer si se cumple la condición_2
-   } else {
-      hacer si no se cumple ninguna;
-   }
+
+         if (condición_1) {
+            hacer si se cumple la condición_1; // Si no, pasa al siguiente.
+         } else if Condición_2)
+            Hacer si se cumple la condición_2
+         } else {
+            hacer si no se cumple ninguna;
+         }
 
 Por ejemplo:
 
-   if (nota >= 90) {
-     console.log("A");
-   } else if (nota >= 80) {
-     console.log("B");
-   } else {
-     console.log("C");
-   }
+      if (nota >= 90) {
+        console.log("A");
+      } else if (nota >= 80) {
+        console.log("B");
+      } else {
+        console.log("C");
+      }
 
    ###### El programa evalua si la variable "nota" cumple la condición de ser igual o mayor que 90. Si se cumple, devuelve un mensaje con la nota obtenida "A". Si no se cumple la condición anterior, pero es mayor o igual que 80 devuelve el mensaje "B". Si ninguna de las anteriores condiciones se cumplen, se devuelve el mensaje "C".
 
@@ -314,17 +317,17 @@ Por ejemplo:
 
 Su sintaxis básica es:
 
-switch (expresión) {
-     case valor1:
-       // Código a ejecutar si expresión === valor1
-       break;
-     case valor2:
-       // Código a ejecutar si expresión === valor2
-       break;
-     // Puedes tener tantos 'case' como necesites
-     default:
-       // Código a ejecutar si ninguno de los casos anteriores coincide
-   }
+      switch (expresión) {
+           case valor1:
+             // Código a ejecutar si expresión === valor1
+             break;
+           case valor2:
+             // Código a ejecutar si expresión === valor2
+             break;
+           // Puedes tener tantos 'case' como necesites
+           default:
+             // Código a ejecutar si ninguno de los casos anteriores coincide
+         }
 
 - `case` : Cada ´case` compara si el valor proporcionado es igual (===) al de la expresión evaluada en el `switch`.
 - `break`: Es crucial para evitar que el código siga ejecutando los casos siguientes. Si se omite, el programa continuará ejecutando los siguientes `case` hasta encontrar un `break` o hasta el final del `switch`.
@@ -332,37 +335,37 @@ switch (expresión) {
 
 Por ejemplo:
 
-   let dia = 3;
-   let nombreDia;
+      let dia = 3;
+      let nombreDia;
 
-   switch (dia) {
-     case 1:
-       nombreDia = "Lunes";
-       break;
-     case 2:
-       nombreDia = "Martes";
-       break;
-     case 3:
-       nombreDia = "Miércoles";
-       break;
-     case 4:
-       nombreDia = "Jueves";
-       break;
-     case 5:
-       nombreDia = "Viernes";
-       break;
-     default:
-       nombreDia = "Fin de semana";
-   }
+      switch (dia) {
+        case 1:
+          nombreDia = "Lunes";
+          break;
+        case 2:
+          nombreDia = "Martes";
+          break;
+        case 3:
+          nombreDia = "Miércoles";
+          break;
+        case 4:
+          nombreDia = "Jueves";
+          break;
+        case 5:
+          nombreDia = "Viernes";
+          break;
+        default:
+          nombreDia = "Fin de semana";
+      }
 
-   console.log(nombreDia); // Resultado: "Miércoles"
+      console.log(nombreDia); // Resultado: "Miércoles"
 
  ###### Declaramos una variable `dia` con valor `3` y Declaramos `nombreDia` (sin valor inicial).
  ###### Iniciamos el `switch` evaluando `dia`. Si `dia === 1` asigna "Lunes" a `nombreDia` y sale del switch; si `dia === 2` asigna "Martes" a `nombreDia` y sale del switch.....
  ###### `default:` Si no coincide con ningún `case` asigna `nombreDia` = "Fin de Semana" y termina este condicional.
  ###### Por último, Imprime el valor de `nombreDia`. en este caso se le ha asignado el `case 3` que es "Miércoles".
 
-5. <ins>Operador ternario (If-else en una línea):</ins> Condicional abreviado para asignaciones o retornos rápidos. (Se puede ver en el siguiente punto)
+5. <ins>Operador ternario (If-else en una línea):</ins> Condicional abreviado para asignaciones o retornos rápidos. (***Se puede ver en el siguiente punto***)
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Cuando se usa un condicional, el programa compara valores o evalúa expresiones lógicas para determinar si una condición es verdadera (***True***) o falsa (***False***). En base a ese resultado, decide qué bloque de código ejecutar. 
 En los codicionales se utilizan operadores de Asignación, Comparación y Lógicos:
@@ -400,106 +403,201 @@ En el siguiente enlace se pueden accder a más información y ejemplos del códi
 ## ¿Qué es un operador ternario?
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;El operador Ternario en JavaScript es una forma concisa de escribir un condicional if...else en una sola línea. Es especialmente útil para asignaciones rápidas o ejecuciones simples basadas en una condición.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;El ***operador Ternario*** en **JavaScript** es una forma concisa de escribir un condicional `if/else` en una sola línea. Es especialmente útil para asignaciones rápidas o ejecuciones simples basadas en una condición.
 
 Su sintáxis básica es:
 
-   condición ? expresiónSiVerdadero : expresiónSiFalso;
-   //condición: Una expresión que se evalúa como true o false.
-   //expresiónSiVerdadero: Se ejecuta si la condición es true.
-   //expresiónSiFalso: Se ejecuta si la condición es false.
+      condición ? expresiónSiVerdadero : expresiónSiFalso;
+   
+      //condición: Una expresión que se evalúa como `true` o `false`.
+      //expresiónSiVerdadero: Se ejecuta si la condición es `true`.
+      //expresiónSiFalso: Se ejecuta si la condición es `false`.
 
 Esto equivale a la estructura condicional:
 
-   if (condición) {
-     expresiónSiVerdadero;
-   } else {
-     expresiónSiFalso;
-   }
+      if (condición) {
+        expresiónSiVerdadero;
+      } else {
+        expresiónSiFalso;
+      }
 
 
-Un ejemplo práctico:
+Ejemplos de operador ternario vs condicionales tradicionales:
+
+1. Equivalente a `if` simple:
+   
+         resultado = condicion ? "verdadero" : resultado;
+   
+         //Sin operador ternario:
+
+       if (condicion) {
+           resultado = "verdadero";
+         }
+> [!WARNING]  
+> Si la condición es falsa, mantiene el valor previo de `resultado`.
+> El Operador Ternario siempre debe retornar un valor (no sirve para ejecutar funciones sin retorno).
+
+2. Equivalente a `if/else`:
+
+         mensaje = condicion ? "éxito" : "error";
+
+         //Sin operador ternario:
+
+         if (condicion) {
+           mensaje = "éxito";
+         } else {
+           mensaje = "error";
+         }
+
+3.  Equivalente a `if/else...if/else` (múltiples condiciones): Con ternario anidado.
+
+         nota = 
+            puntuacion >= 90 ? "A" :
+            puntuacion >= 80 ? "B" :
+            "C";
+
+         //Sin operador ternario:
 
 
+         if (puntuacion >= 90) {
+            nota = "A";
+         } else if (puntuacion >= 80) {
+            nota = "B";
+         } else {
+            nota = "C";
+         }
 
 
-📌 Ejemplos Prácticos
-Asignar un valor según una condición:
+4.  Equivalente a `switch`: Con ternario anidado.
 
-javascript
-Copy
-let edad = 20;
-let mensaje = edad >= 18 ? "Mayor de edad" : "Menor de edad";
-console.log(mensaje); // "Mayor de edad"
-Ejecutar funciones diferentes:
+         nombreDia = 
+           dia === 1 ? "Lunes" :
+           dia === 2 ? "Martes" :
+           "Desconocido";
 
-javascript
-Copy
-let esUsuarioPremium = true;
-esUsuarioPremium ? mostrarContenidoPremium() : mostrarContenidoGratis();
-Devolver valores en una arrow function:
+         //Sin operador ternario:
 
-javascript
-Copy
-const esPar = (num) => (num % 2 === 0 ? "Sí" : "No");
-console.log(esPar(4)); // "Sí"
-🔥 Ventajas
-Código más corto y legible (para condiciones simples).
+         switch (dia) {
+            case 1: nombreDia = "Lunes"; break;
+            case 2: nombreDia = "Martes"; break;
+            default: nombreDia = "Desconocido";
+         }
 
-No requiere {} ni return en funciones de una línea.
+>[!TIP]  
+>Los ternarios anidados pueden volverse difíciles de leer. Si hay muchas condiciones, es preferible usar if/else o switch para mayor claridad.
 
-Puede anidarse (aunque no es recomendable por legibilidad):
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;El Operador Ternario es una herramienta poderosa para simplificar condiciones simples, ofrece la escritura de código más corto y legible (No requiere {} ni return en funciones de una línea). Es preferible usarlo cuando necesitemos tomar decisiones rápidas y mantener el código limpio. Para lógica más compleja, es mejor seguir usando `if/else` o `switch`
 
-javascript
-Copy
-let nota = 85;
-let resultado = nota >= 90 ? "A" : nota >= 80 ? "B" : "C";
-console.log(resultado); // "B"
-⚠️ Precauciones
-No abuses del anidamiento (puede volverse difícil de leer):
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
-javascript
-Copy
-// ❌ Difícil de entender
-let x = a ? b : c ? d : e;
-Usa if...else para lógica compleja (múltiples líneas o acciones).
-
-💡 Comparación con if...else
-Operador Ternario	if...else
-let x = condición ? a : b;	if (condición) { x = a; } else { x = b; }
-Ideal para asignaciones rápidas.	Ideal para bloques de código largos.
-Retorna un valor directamente.	No retorna valores (a menos que uses return).
-Ejemplo en React (JSX)
-El ternario es muy usado en React para renderizado condicional:
-
-jsx
-Copy
-<div>
-  {usuarioLogueado ? <Perfil /> : <Login />}
-</div>
-
-     
-Conclusión
-El operador ternario es una herramienta poderosa para simplificar condiciones simples. Úsalo cuando necesites tomar decisiones rápidas y mantener tu código limpio. Para lógica más compleja, sigue usando if...else o switch.
-Código más corto y legible (para condiciones simples).
-
-No requiere {} ni return en funciones de una línea.
-
-Puede anidarse (aunque no es recomendable por legibilidad)
-     
 ---------------------------------------------------------------------------------------------------------------------------------
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 ## ¿Cuál es la diferencia entre una declaración de función y una expresión de función?
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;La Declaración de Función es la función en sí misma ,escrita directamente con la palabra clave `function`, y no está asignada a ninguna variable. Mientras, la Expresión de Función es cuando la función se declara dentro de la variable.
+
+<ins>Declaración de Función:</ins>
+
+         function sumar(a, b) {
+           return a + b;
+         }
+
+<ins>Exprexión de Función</ins>:
+
+         const sumar = function(a, b) {
+           return a + b;
+         };
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+Podemos resumirlo como:
+   - Declaración: Escribir la función en sí. *function sumar(a, b)*
+   - Expresión: Escribir la función dentro de una variable.  *const sumar = function(a, b)*
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
 ---------------------------------------------------------------------------------------------------------------------------------
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 ## ¿Qué es la palabra clave "this" en JS?
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;La palabra clave `this` es una referencia al contexto en el que se ejecuta una función. Su valor cambia dependiendo de cómo y dónde se llama la función. 
+`this` hace que los métodos sean flexibles y puedan trabajar con cualquier objeto que los contenga y acceder a las propiedades del objeto
 
----------------------------------------------------------------------------------------------------------------------------------
-
-## ¿Qué es la palabra clave "this" en JS?
+> [!NOTE]
+> Es como un atajo para decir: "usa las propiedades de este objeto".Sin `this`, los métodos no podrían acceder a los datos del objeto de forma dinámica.
+> 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
----------------------------------------------------------------------------------------------------------------------------------
+La función no sabe automáticamente que nombre pertenece al objeto:
+
+         const persona = {
+           nombre: "Isabel",
+           saludar: function() {
+             // ¿Cómo accedo al nombre "Isabel" desde aquí?
+             console.log(`Hola, soy ${nombre}`); 
+           }
+         };
+         persona.saludar();
+         // Error: "nombre is not defined"
+         
+this actúa como un acceso directo al objeto *dueño* (persona en este caso):
+
+         const persona = {
+           nombre: "Isabel",
+           saludar: function() {
+             console.log(`Hola, soy ${this.nombre}`);
+           }
+         };
+         persona.saludar(); // `this` = persona
+         ///Salida: "Hola, soy Isabel"
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Sin `this` No hay forma de acceder a las propiedades del objeto desde sus métodos. Obligaría a escribir código redundante: persona.nombre en cada método.
+
+
+Ejemplo de reutilización con this:
+
+         const persona1 = {
+           nombre: "Isabel",
+           saludar: function() { console.log(`Hola, soy ${this.nombre}`); }
+         };
+
+         const persona2 = {
+           nombre: "Ana",
+           saludar: persona1.saludar // ¡Mismo método que persona1!
+         };
+
+         persona1.saludar(); // "Hola, soy Isabel"
+         persona2.saludar(); // "Hola, soy Ana" (this cambia según quién llame al método)
+
+
+Cuando usas `this` en una función sin dueño (que no es método de un objeto), **JavaScript** lo asigna automáticamente al objeto global del entorno donde se ejecuta:
+
+         function mostrarThis() {
+           console.log(this); // Apunta a `global`
+         }
+
+         mostrarThis();
+
+ - En entorno de Navegadores: *"this = window"*
+   *"window"* es el objeto global que representa la ventana del navegador, y contiene todas las APIs del navegador (document, console, setTimeout, etc.).
+   Salida: Se ve el objeto Window con propiedades como:
+   
+           Window {
+              document: document,
+              alert: function() {...},
+              localStorage: Storage {...},
+              ...
+            }
+   
+ - En entorno de *"Node.js"*: *"this = global"*
+   *"Node.js"* tiene su propio objeto global llamado global, e incluye módulos como require, process, __dirname, etc.
+   Salida: Se ve el objeto global con propiedades como:
+   
+            <ref *1> Object [global] {
+              global: [Circular *1],
+              clearInterval: [Function: clearInterval],
+              require: [Function: require],
+              process: process {...},
+              ...
+           }
+
